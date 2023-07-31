@@ -841,7 +841,7 @@
 
   ;; if we're a new game, set our checkpoint.
   (when (nonzero? (-> save new-game))
-    (set-continue! obj "game-start")
+    (set-continue! obj "test-zone-start")
     (set! save save)
     (goto cfg-134)
     )

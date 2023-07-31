@@ -72,7 +72,7 @@
         :disp1 'special
         )
       (new 'static 'continue-point
-        :name "game-start"
+        :name "test-zone-start"
         :level 'training
         :flags (continue-flags warp game-start)
         :trans (new 'static 'vector :x -5393740.5 :y 28259.533 :z 4360945.5 :w 1.0)

@@ -10,7 +10,7 @@ copy "..\..\out\build\Release\bin\extractor.exe" "%releaseDir%\"
 copy "..\..\out\build\Release\bin\goalc.exe" "%releaseDir%\"
 copy "..\..\out\build\Release\bin\sdl2.dll" "%releaseDir%\"
 copy "..\..\out\build\Release\bin\openal32.dll" "%releaseDir%\"
-xcopy "..\..\out\build\Release\bin\SND\" "%releaseDir%\SND\"
+xcopy "..\..\SND\" "%releaseDir%\SND\"
 
 echo Copying data folder ...
 mkdir "%releaseDir%\data\game"

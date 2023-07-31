@@ -138,11 +138,11 @@
   (case (-> *speedrun-info* category)
     (((speedrun-category full-game))
       ;; spawn at the geyser warp gate checkpoint
-      (initialize! *game-info* 'game (the-as game-save #f) "game-start")
+      (initialize! *game-info* 'game (the-as game-save #f) "test-zone-start")
       )
     (((speedrun-category il-training))
       ;; spawn at the geyser warp gate checkpoint
-      (initialize! *game-info* 'game (the-as game-save #f) "game-start")
+      (initialize! *game-info* 'game (the-as game-save #f) "test-zone-start")
       )
     (((speedrun-category il-village1))
       ;; spawn at the green sage hut warp gate
@@ -206,11 +206,11 @@
       )
     (((speedrun-category new-game-plus))
       ;; spawn at the geyser warp gate checkpoint
-      (initialize! *game-info* 'game (the-as game-save #f) "game-start")
+      (initialize! *game-info* 'game (the-as game-save #f) "test-zone-start")
       )
     (((speedrun-category hub1-100))
       ;; spawn at the geyser warp gate checkpoint
-      (initialize! *game-info* 'game (the-as game-save #f) "game-start")
+      (initialize! *game-info* 'game (the-as game-save #f) "test-zone-start")
       )
     (((speedrun-category hub2-100))
       ;; spawn at rock village start
