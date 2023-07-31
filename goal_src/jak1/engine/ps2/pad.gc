@@ -13,7 +13,7 @@
 ;; in display, but we haven't gotten to display-h.gc yet.
 (define-extern get-current-time (function time-frame))
 (define-extern get-integral-current-time (function time-frame))
-
+(define-extern *2D-mod-on?* symbol)
 (defenum pad-buttons
     :bitfield #t
     :type uint32
@@ -340,7 +340,27 @@
                       (set! (-> pad leftx) (- 255 (-> pad leftx)))
                       (set! (-> pad rightx) (- 255 (-> pad rightx)))
                       ))
+
+                (let* ((leftx (- (the int (-> pad leftx)) 128))
+                     (lefty (- (the int (-> pad lefty)) 128))
+                     (leftslope (/ (the float lefty) (the float leftx)))
+                     (leftrad (atan-rad (abs leftslope)))
+                    )
+                
+                )
               ;; compute speed and direction, with deadband.
+
+
+              (if *2D-mod-on?* 
+              (begin
+                 (set! (-> pad lefty) (the-as uint 128))
+              (set! (-> pad rightx) (the-as uint 128))
+              )
+              )
+           
+
+
+
               (let ((f30-0 (* 0.0078125 (the float (+ (-> pad leftx) -128))))
                     (f28-0 (* 0.0078125 (the float (- 127 (the-as int (-> pad lefty))))))
                     )

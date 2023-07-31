@@ -1277,10 +1277,11 @@
   (stopwatch-start (-> *collide-stats* total-target))
 
   ;; check and correct massive velocity.
-  (when (< 1638400.0 (vector-length arg0))
-    (format 0 "WARNING: target vel is ~M m/s, reseting to zero.~%" (vector-length arg0))
-    (vector-reset! arg0)
-    )
+  ;; *2D-mod-on?*
+  ;; (when (< 1638400.0 (vector-length arg0))
+  ;;   (format 0 "WARNING: target vel is ~M m/s, reseting to zero.~%" (vector-length arg0))
+  ;;   (vector-reset! arg0)
+  ;;   )
 
   ;; ???
   (set! (-> obj unknown-vector15 quad) (-> obj unknown-vector14 quad))

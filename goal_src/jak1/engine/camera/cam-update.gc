@@ -302,9 +302,9 @@
 (define *start-timer* (the-as int #f))
 
 (define *timer-value* 0)
-
+(define-extern *2D-mod-on?* symbol)
 (define *start-pos* (new 'global 'vector))
-
+(define *cam-want-trans* (new 'global 'vector))
 (defun update-camera ()
   (when *start-timer*
     (when (= *timer-value* 180)
@@ -451,6 +451,31 @@
       (move-camera-from-pad *math-camera*)
       )
     )
+
+(if *2D-mod-on?* 
+(begin
+
+  (dotimes (i 3)
+    (dotimes (j 2)
+      (set! (-> *math-camera* inv-camera-rot vector i data j)
+       (if (= i j) 0.8 0.00001))
+    )
+    )
+  
+;; (when *target*
+;; (set! (-> *cam-want-trans* quad) (-> *target* control trans quad))
+;; (set! (-> *math-camera* inv-camera-rot vector 3 quad)
+;;       (-> *cam-want-trans* quad)
+;;       )
+;; )
+;; (set! (-> *math-camera* inv-camera-rot vector 3 w) 1.0)
+
+)
+)
+
+
+
+
   (matrix-transpose! (-> *math-camera* camera-rot) (-> *math-camera* inv-camera-rot))
   (cond
     (*camera-no-mip-correction*
@@ -586,6 +611,8 @@
   (if (not (paused?))
       (update-wind *wind-work* *wind-scales*)
       )
+
+      
   #f
   )
 

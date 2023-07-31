@@ -21,9 +21,40 @@
     ;; Begin function defintions.
     ;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+    (define *2D-mod-on?* #t)
     (defun runs-every-frame ()
       ;;(increase-power-cell-by-one) This is a call to increase-power-cell-by-one defined in mod-common-functions.gc
       
+(if *2D-mod-on?* 
+        (begin
+         (if (or (not ( = (-> (target-pos 0 )z) 0.0))
+        (not (= (-> *target* root rot w) 0.0))
+        (not (= (-> *target* root rot y) 0.0))
+        )
+        (begin
+        
+        (set! (-> (target-pos 0 )z) 0.00001)
+        (set! (-> *target* root rot w) 0.00001)
+        (set! (-> *target* root rot y) 0.000001)
+        )
+     
+        
+        )
+        
+        (if (not (= (-> (-> (the-as (pointer camera-slave) (-> *camera* child) ))state name) 'cam-stick))
+        
+         (send-event *camera* 'change-state cam-stick 0)
+
+        )
+        
+        )
+       
+        )
+
+        
+       
+
+       (set! (-> *setting-control* default border-mode) #f)
       (if *show-input-display* 
         (input-display-on)
         (input-display-off)

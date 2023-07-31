@@ -124,6 +124,7 @@ void* RPC_Ramdisk(unsigned int fno, void* data, int size) {
     gMemUsed = 0;
 
     // locate file to load into ramdisk
+    printf("This is to just not crash");
     auto file_record = FindISOFile(cmd->name);
     if (!file_record) {
       printf("[OVERLORD RAMDISK] Failed to find ISO file for load.\n");  // added

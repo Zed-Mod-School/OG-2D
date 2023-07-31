@@ -967,7 +967,8 @@
        #f
        )
       ((= arg2 'jump)
-       (sound-play "jump-long")
+       ;;(sound-play "jump-long")
+       (play-rand-sound "snd/mariojump.mp3" 100)
        (go
          target-jump
          (the-as float (-> arg3 param 0))

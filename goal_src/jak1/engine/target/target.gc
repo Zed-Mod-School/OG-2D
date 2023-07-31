@@ -1401,7 +1401,8 @@
         )
       )
     (set! (-> self state-time) (-> *display* base-frame-counter))
-    (sound-play "jump" :vol 70)
+    ;;(sound-play "jump" :vol 70)
+    (play-rand-sound "snd/mariojump.mp3" 100)
     (init-var-jump arg0 arg1 (the-as vector #t) (the-as vector #t) (-> self control transv))
     (logclear! (-> self control status) (cshape-moving-flags onsurf onground tsurf))
     (set! arg2 (cond
@@ -1634,7 +1635,8 @@
         )
     (set! (-> self state-time) (-> *display* base-frame-counter))
     (logclear! (-> self control status) (cshape-moving-flags onsurf onground tsurf))
-    (sound-play "jump" :pitch 0.3)
+    ;;(sound-play "jump" :pitch 0.3)
+    (play-rand-sound "snd/mariojump.mp3" 100)
     (init-var-jump arg0 arg1 (the-as vector #t) (the-as vector #t) (-> self control transv))
     (set! (-> self control unknown-surface00) (cond
                                                 ((= arg2 'flip)
@@ -1759,7 +1761,8 @@
   :event target-jump-event-handler
   :enter (behavior ((arg0 float) (arg1 float) (arg2 symbol))
     (set! (-> self state-time) (-> *display* base-frame-counter))
-    (sound-play "jump" :vol 80 :pitch -0.4)
+    ;;(sound-play "jump" :vol 80 :pitch -0.4)
+    (play-rand-sound "snd/mariojump.mp3" 100)
     (init-var-jump arg0 arg1 (the-as vector #t) (the-as vector #f) (-> self control transv))
     (logclear! (-> self control status) (cshape-moving-flags onsurf onground tsurf))
     (cond
