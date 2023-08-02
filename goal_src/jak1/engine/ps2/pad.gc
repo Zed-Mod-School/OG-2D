@@ -71,7 +71,7 @@
   :size-assert         #x24
   :flag-assert         #x900000024
   )
-
+(define-extern *target* symbol)
 ;; data from hardware + additional info calculated here.
 (deftype cpad-info (hw-cpad)
   ((number             int32           :offset-assert 36) ;; controller port number
@@ -351,7 +351,7 @@
               ;; compute speed and direction, with deadband.
 
 
-              (if *2D-mod-on?* 
+              (if (and *2D-mod-on?* *target*)
               (begin
                  (set! (-> pad lefty) (the-as uint 128))
               (set! (-> pad rightx) (the-as uint 128))

@@ -25,7 +25,7 @@
     (defun runs-every-frame ()
       ;;(increase-power-cell-by-one) This is a call to increase-power-cell-by-one defined in mod-common-functions.gc
       
-(if *2D-mod-on?* 
+(if (and *2D-mod-on?* *target*)
         (begin
          (if (or (not ( = (-> (target-pos 0 )z) 0.0))
         (not (= (-> *target* root rot w) 0.0))
